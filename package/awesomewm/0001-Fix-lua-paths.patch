@@ -1,0 +1,80 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 1916d5c..de74463 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -150,7 +150,7 @@ target_link_libraries(${PROJECT_AWE_NAME}
+ 
+ # check for lgi and the needed gobject introspection files
+ add_custom_target(lgi-check ALL
+-    COMMAND ${SOURCE_DIR}/build-utils/lgi-check.sh)
++    COMMAND ${SOURCE_DIR}/build-utils/lgi-check.sh "${PROJECT_SOURCE_DIR}/build-utils/luawrapper.sh")
+ 
+ # {{{ Generated sources
+ # atoms
+diff --git a/awesomeConfig.cmake b/awesomeConfig.cmake
+index 3eba005..e9593d4 100644
+--- a/awesomeConfig.cmake
++++ b/awesomeConfig.cmake
+@@ -361,7 +361,7 @@ file(MAKE_DIRECTORY ${BUILD_DIR}/script_files/)
+ 
+ add_custom_command(
+         OUTPUT ${BUILD_DIR}/docs/06-appearance.md
+-        COMMAND lua ${SOURCE_DIR}/docs/06-appearance.md.lua
++        COMMAND "${PROJECT_SOURCE_DIR}/build-utils/luawrapper.sh" ${SOURCE_DIR}/docs/06-appearance.md.lua
+         ${BUILD_DIR}/docs/06-appearance.md
+         DEPENDS lgi-check
+ )
+@@ -369,7 +369,7 @@ add_custom_command(
+ add_custom_command(
+         OUTPUT ${BUILD_DIR}/awesomerc.lua ${BUILD_DIR}/docs/05-awesomerc.md
+             ${BUILD_DIR}/script_files/rc.lua
+-        COMMAND lua ${SOURCE_DIR}/docs/05-awesomerc.md.lua
++        COMMAND "${PROJECT_SOURCE_DIR}/build-utils/luawrapper.sh" ${SOURCE_DIR}/docs/05-awesomerc.md.lua
+         ${BUILD_DIR}/docs/05-awesomerc.md ${SOURCE_DIR}/awesomerc.lua
+         ${BUILD_DIR}/awesomerc.lua
+         ${BUILD_DIR}/script_files/rc.lua
+@@ -377,7 +377,7 @@ add_custom_command(
+ 
+ add_custom_command(
+         OUTPUT ${BUILD_DIR}/script_files/theme.lua
+-        COMMAND lua ${SOURCE_DIR}/docs/sample_theme.lua ${BUILD_DIR}/script_files/
++        COMMAND "${PROJECT_SOURCE_DIR}/build-utils/luawrapper.sh" ${SOURCE_DIR}/docs/sample_theme.lua ${BUILD_DIR}/script_files/
+ )
+ 
+ # Create a target for the auto-generated awesomerc.lua and other files
+diff --git a/build-utils/lgi-check.sh b/build-utils/lgi-check.sh
+index cbc7ec2..96d3c4e 100755
+--- a/build-utils/lgi-check.sh
++++ b/build-utils/lgi-check.sh
+@@ -21,17 +21,19 @@ die()
+ 	exit 1
+ }
+ 
++LUA=$1
++
+ # Check if we have lgi
+-lua -e 'require("lgi")' || die
++$LUA -e 'require("lgi")' || die
+ 
+ # Check the version number.
+ # Keep this in sync with lib/gears/surface.lua and .travis.yml (LGIVER)!
+-lua -e '_, _, major_minor, patch = string.find(require("lgi.version"), "^(%d%.%d)%.(%d)");
++$LUA -e '_, _, major_minor, patch = string.find(require("lgi.version"), "^(%d%.%d)%.(%d)");
+ 	if tonumber(major_minor) < 0.8 or (tonumber(major_minor) == 0.8 and tonumber(patch) < 0) then
+ 		error(string.format("lgi is too old, need at least version %s, got %s.",
+ 		                    "0.8.0", require("lgi.version"))) end' || die
+ 
+ # Check for the needed gi files
+-lua -e 'l = require("lgi") assert(l.cairo, l.Pango, l.PangoCairo, l.GLib, l.Gio)' || die
++$LUA -e 'l = require("lgi") assert(l.cairo, l.Pango, l.PangoCairo, l.GLib, l.Gio)' || die
+ 
+ # vim: filetype=sh:expandtab:shiftwidth=4:tabstop=8:softtabstop=4:textwidth=80
+diff --git a/build-utils/luawrapper.sh b/build-utils/luawrapper.sh
+new file mode 100755
+index 0000000..96f5966
+--- /dev/null
++++ b/build-utils/luawrapper.sh
+@@ -0,0 +1,3 @@
++#/bin/sh
++
++LUA_PATH="/home/hoxnox/devel/buildroot/output/target/usr/share/lua/5.1/?.lua" LD_LIBRARY_PATH=/home/hoxnox/devel/buildroot/output/target/usr/lib /home/hoxnox/devel/buildroot/output/target/usr/bin/luajit "$@"
