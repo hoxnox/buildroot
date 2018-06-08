@@ -1,0 +1,8 @@
+config BR2_PACKAGE_LUA_LGI
+	bool "lua-lgi"
+    select BR2_PACKAGE_GOBJECT_INTROSPECTION 
+	help
+	  Dynamic Lua binding to GObject libraries using GObject-Introspection
+
+	  https://github.com/pavouk/lgi
+
