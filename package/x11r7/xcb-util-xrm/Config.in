@@ -1,0 +1,7 @@
+config BR2_PACKAGE_XCB_UTIL_XRM
+	bool "xcb-util-xrm"
+	select BR2_PACKAGE_LIBXCB
+	help
+	  X C-language Bindings sample implementations
+	
+	  https://github.com/Airblader/xcb-util-xrm
