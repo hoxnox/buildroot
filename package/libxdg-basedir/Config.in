@@ -1,0 +1,6 @@
+config BR2_PACKAGE_LIBXDG_BASEDIR
+	bool "libxdg-basedir"
+	help
+	  Small library to access XDG Base Directories Specification paths
+
+	  http://repo.or.cz/w/libxdg-basedir.git

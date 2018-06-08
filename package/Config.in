@@ -1563,6 +1563,7 @@ menu "Other"
 	source "package/libunwind/Config.in"
 	source "package/liburcu/Config.in"
 	source "package/libuv/Config.in"
++	source "package/libxdg-basedir/Config.in
 	source "package/lightning/Config.in"
 	source "package/linux-pam/Config.in"
 	source "package/llvm/Config.in"
