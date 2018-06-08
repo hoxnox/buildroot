@@ -162,6 +162,7 @@ endif
 
 $(2)_CONF_ENV			?=
 $(2)_CONF_OPTS			?=
+$(2)_GIR_EXTRA_LIBS_PATH	?=
 $(2)_MAKE_ENV			?=
 $(2)_MAKE_OPTS			?=
 $(2)_INSTALL_OPTS                ?= install
@@ -238,6 +239,8 @@ define $(2)_CONFIGURE_CMDS
 endef
 endif
 endif
+
+export GIR_EXTRA_LIBS_PATH=$$($$(PKG)_GIR_EXTRA_LIBS_PATH)
 
 $(2)_POST_PATCH_HOOKS += UPDATE_CONFIG_HOOK
 
