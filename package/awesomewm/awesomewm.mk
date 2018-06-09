@@ -16,6 +16,7 @@ AWESOMEWM_DEPENDENCIES += \
     libglib2 \
     gdk-pixbuf \
     cairo \
+    pango \
     xcb-util-cursor \
     xcb-util-keysyms \
     xcb-util-wm \
