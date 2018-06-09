@@ -12,3 +12,4 @@
 *.rej
 *~
 *.pyc
+board/hoxnox/livestick/rootfs_overlay/root/.ssh

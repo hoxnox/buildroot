@@ -1,12 +1,12 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/home/hoxnox/.oh-my-zsh
+export ZSH=/root/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 ZSH_THEME="cloud"
-ZSH_THEME_CLOUD_PREFIX="☯"
+ZSH_THEME_CLOUD_PREFIX="$"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"

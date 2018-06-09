@@ -1,3 +1,4 @@
+-- custom
 -- Standard awesome library
 local gears = require("gears")
 local awful = require("awful")
@@ -9,6 +10,7 @@ local beautiful = require("beautiful")
 -- Notification library
 local naughty = require("naughty")
 local menubar = require("menubar")
+local vicious = require("vicious")
 --local vicious.widgets.cpu = require("/home/hoxnox/.config/awesome/cpu.lua")
 local hotkeys_popup = require("awful.hotkeys_popup").widget
 
