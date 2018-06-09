@@ -348,6 +348,7 @@ comment "X applications"
 	source "package/xterm/Config.in"
 	source "package/xvkbd/Config.in"
 	source "package/yad/Config.in"
+    source "package/xkb-switch/Config.in"
 
 comment "X libraries and helper libraries"
 	depends on BR2_PACKAGE_XORG7
