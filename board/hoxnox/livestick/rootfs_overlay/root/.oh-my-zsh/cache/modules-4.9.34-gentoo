@@ -1,0 +1,4 @@
+modules=( ${(Q)"${(z)$(<<\EO:modules
+'ax88179_178a' 'brcmfmac' 'brcmutil' 'cdc-acm' 'cdc_ether' 'configfs' 'echainiv' 'iptable_nat' 'ipt_MASQUERADE' 'mfd-core' 'mii' 'mmc_block' 'mmc_core' 'nbd' 'nf_log_arp' 'nf_log_common' 'nf_log_ipv4' 'nf_nat' 'nf_nat_ftp' 'nf_nat_ipv4' 'nf_nat_irc' 'nf_nat_masquerade_ipv4' 'nf_nat_sip' 'nfs_layout_flexfiles' 'nvidia' 'nvidia-drm' 'nvidia-modeset' 'nvidia-uvm' 'rndis_host' 'rndis_wlan' 'rtsx_pci' 'rtsx_pci_sdmmc' 'sdhci' 'sdhci-pci' 'usbnet' 'vboxdrv' 'vboxnetadp' 'vboxnetflt' 'vboxpci' 'vfio' 'vfio_iommu_type1' 'vfio-pci' 'vfio_virqfd' 'x86_pkg_temp_thermal' 'xt_addrtype' 'xt_LOG' 'xt_mark' 'xt_nat'
+EO:modules
+)}"} )

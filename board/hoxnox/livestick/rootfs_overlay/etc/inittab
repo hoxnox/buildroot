@@ -28,7 +28,7 @@ null::sysinit:/bin/ln -sf /proc/self/fd/2 /dev/stderr
 
 # Put a getty on the serial port
 #console::respawn:/sbin/getty -L  console 0 vt100 # GENERIC_SERIAL
-::respawn:-/bin/sh -c startx
+::respawn:-/bin/sh -c "HOME=/root startx"
 
 # Stuff to do for the 3-finger salute
 #::ctrlaltdel:/sbin/reboot
