@@ -12,7 +12,7 @@ VICIOUS_LICENSE_FILES = LICENSE
 VICIOUS_DEPENDENCIES = awesomewm
 
 define VICIOUS_INSTALL_TARGET_CMDS
-    $(INSTALL) -d "$(TARGET_DIR)/usr/share/awesome/lib/vicious/widgets"
+	$(INSTALL) -d "$(TARGET_DIR)/usr/share/awesome/lib/vicious/widgets"
 	$(INSTALL) -D -m 0664 \
 		$(wildcard $(@D)/widgets/*.lua) \
 		"$(TARGET_DIR)/usr/share/awesome/lib/vicious/widgets"
