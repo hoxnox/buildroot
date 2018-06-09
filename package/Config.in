@@ -354,6 +354,7 @@ comment "X libraries and helper libraries"
 
 	source "package/libsexy/Config.in"
 	source "package/x11r7/xkeyboard-config/Config.in"
+    source "package/vicious/Config.in"
 
 comment "X window managers"
 	depends on BR2_PACKAGE_XORG7

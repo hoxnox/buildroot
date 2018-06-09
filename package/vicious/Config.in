@@ -1,0 +1,8 @@
+config BR2_PACKAGE_VICIOUS
+	bool "vicious"
+	depends on BR2_PACKAGE_AWESOMEWM
+	help
+	  Vicious is a modular widget library for window managers, but mostly catering to users of the
+	  "awesome" window manager.
+	
+	  https://github.com/Mic92/vicious
