@@ -29,7 +29,7 @@ AWESOMEWM_CONF_OPTS = -DLUA_INCLUDE_DIR=$(TARGET_DIR)/usr/include -DLUA_LIBRARY=
 #AWESOMEWM_DEPENDENCIES = libglib2 host-pkgconf
 
 define AWESOMEWM_FIX_LUAWRAPPER_PATHS
-	$(SED) "s|@TARGET_DIR|$(TARGET_DIR)|g" $(@D)/build-utils/luawrapper.sh
+	$(SED) "s|@TARGET_DIR@|$(TARGET_DIR)|g" $(@D)/build-utils/luawrapper.sh
 endef
 AWESOMEWM_POST_PATCH_HOOKS=AWESOMEWM_FIX_LUAWRAPPER_PATHS
 
