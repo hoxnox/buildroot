@@ -1,0 +1,7 @@
+config BR2_PACKAGE_SSH_ASKPASS_FULLSCREEN
+	bool "ssh-askpass-fullscreen"
+	select BR2_PACKAGE_LIBGTK3
+	help
+	  A tiny GTK2 ssh askpass replacement.
+	
+	  https://github.com/atj/ssh-askpass-fullscreen 

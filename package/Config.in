@@ -349,6 +349,7 @@ comment "X applications"
 	source "package/xvkbd/Config.in"
 	source "package/yad/Config.in"
     source "package/xkb-switch/Config.in"
+    source "package/ssh-askpass-fullscreen/Config.in"
 
 comment "X libraries and helper libraries"
 	depends on BR2_PACKAGE_XORG7
