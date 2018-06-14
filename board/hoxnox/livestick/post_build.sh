@@ -5,3 +5,4 @@ if [ -f "$1/etc/init.d/S40xorg" ]; then
 fi
 
 chmod g-rwx,o-rwx -R "$1/root/.ssh"
+chmod +x "$1/root/.mount-win"

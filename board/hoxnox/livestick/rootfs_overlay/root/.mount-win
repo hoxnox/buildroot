@@ -1,0 +1,3 @@
+#!/bin/sh
+
+ntfslabel -v /dev/sda2 | grep -q '24bab38fbab35bcc' && ntfs-3g -o utf8 /dev/sda2 /media/win
